@@ -1,8 +1,8 @@
 /*
-閏年判定問題
+Leap year checking practice
 http://paiza.jp/challenges/practice
 
--- TEST SCRIPT at https://github.com/kkoiwai/stdio-tester
+-- TEST SCRIPT at https://github.com/kkoiwai/stdio-tester-en
 -- COMMAND --
 go run
 -- INPUT --
@@ -27,9 +27,9 @@ import (
     "strconv"
 )
 func main(){
-    // 自分の得意な言語で
-    // Let's チャレンジ！！
+
     scanner := bufio.NewScanner(os.Stdin)
+    // first line represents number of input lines, so just skip
     scanner.Scan() 
     for scanner.Scan() {
         i, err := strconv.Atoi(scanner.Text())
@@ -45,11 +45,11 @@ func main(){
     
 }
 func leap(n int) bool{
-    // 西暦が4で割り切れない年は閏年ではない。
+    // n is not a leap year if not a multiple of 4
     if n % 4 != 0 {
         return false
     }
-    // 100で割り切れ,400で割り切れない年は閏年ではない。
+    // n is not a leap year if a multiple of 100 but not a multiple of 400
     if n % 100 == 0 && n % 400 !=0 {
         return false
     }
